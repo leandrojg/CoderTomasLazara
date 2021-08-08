@@ -1,0 +1,14 @@
+[
+	{
+		"producto": "Banana",
+		"precio": "7413",
+		"thumbnail": "Foto: 8",
+		"id": 1
+	},
+	{
+		"producto": "Tomate",
+		"precio": "244",
+		"thumbnail": "Foto: 6",
+		"id": 2
+	}
+]
