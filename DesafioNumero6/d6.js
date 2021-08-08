@@ -50,7 +50,7 @@ class Archivo
      }
      else
      {
-       console.log("archivo inexistente")
+       console.log(ArrayProductos)
      }
   }
 //El método borrar elimina el archivo completo.
@@ -60,7 +60,15 @@ class Archivo
   {
     try
     {
-        await fs.promises.unlink(this.archivo)
+      try
+      {
+       await fs.promises.unlink(this.archivo)
+      }
+      catch
+      {
+       throw new Error("el archivo que se quiere borrar es inexistente")
+      }
+        
     }
     catch(err)
     {
