@@ -1,0 +1,8 @@
+[
+	{
+		"producto": "Banana"
+	},
+	{
+		"producto": "Tomate"
+	}
+]
