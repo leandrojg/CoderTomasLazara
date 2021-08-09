@@ -15,35 +15,45 @@ class Archivo
 // el cual se obtendrá de la longitud total del array actual más 1.
   async Guardar(producto)
   {
-    try
+    let comprobacion =  fs.existsSync(this.archivo);
+    
+    if(comprobacion)
     {
-      ArrayProductos.push(({ ...producto, id: ArrayProductos.length + 1 }))
       try
       {
-         await fs.promises.writeFile(
-          this.archivo,
-          JSON.stringify(ArrayProductos, null, '\t')
-        );
+          ArrayProductos.push(({ ...producto, id: ArrayProductos.length + 1 }))
+          try
+          {
+            await fs.promises.writeFile(
+              this.archivo,
+              JSON.stringify(ArrayProductos, null, '\t')
+            );
+          }
+          catch(err)
+          {
+            throw new Error(err);
+          }
       }
       catch(err)
       {
-        throw new Error(err);
+        console.log(err)
       }
-    }
-    catch(err)
-    {
-      console.log(err)
-    }
+  }
+  else
+  {
+     console.log(ArrayProductos)
+  }
+
   }
 // Con el método leer se mostrará en consola el listado total 
 // (si el archivo existe) como un array de productos.
-  Leer() 
+  async Leer() 
   {
-    let comprobacion = fs.existsSync(this.archivo);
+    let comprobacion =  fs.existsSync(this.archivo);
 
      if(comprobacion)
      {
-       fs.promises.readFile(this.archivo, "utf-8")
+       await fs.promises.readFile(this.archivo, "utf-8")
        .then(data=>{ 
          console.log(data)
        })
