@@ -3,7 +3,13 @@ const fs = require("fs");
 const session = require("express-session");
 
 
+
+// Realizar un proyecto de servidor basado en node.js que utilice el middleware express 
+// e implemente tres endpoints en el puerto 8080
 const App = express();
+const server = App.listen(8080,()=>{
+    console.log(`Puerto de escucha seteado: 8080`)
+})
 
 App.use(session({
     secret: 'session',
@@ -13,13 +19,6 @@ App.use(session({
 
 let visitasItems = [];
 let VisitasRandom = []; 
-
-
-// Realizar un proyecto de servidor basado en node.js que utilice el middleware express 
-// e implemente tres endpoints en el puerto 8080
-const server = App.listen(8080,()=>{
-    console.log(`Puerto de escucha seteado: 8080`)
-})
 
 // Ruta get '/items' que responda un objeto con todos los productos 
 // y su cantidad total en el siguiente formato: { items: [productos], cantidad: (cantidad productos)}
