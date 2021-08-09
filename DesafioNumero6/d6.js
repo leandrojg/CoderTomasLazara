@@ -16,7 +16,7 @@ class Archivo
   async Guardar(producto)
   {
     let comprobacion =  fs.existsSync(this.archivo);
-    
+
     if(comprobacion)
     {
       try
@@ -39,11 +39,6 @@ class Archivo
         console.log(err)
       }
   }
-  else
-  {
-     console.log(ArrayProductos)
-  }
-
   }
 // Con el método leer se mostrará en consola el listado total 
 // (si el archivo existe) como un array de productos.
